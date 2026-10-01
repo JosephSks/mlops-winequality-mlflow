@@ -17,6 +17,7 @@ ENV/
 mlruns/
 mlartifacts/
 .mlflow/
+*.db
 
 # Weights & Biases
 wandb/
