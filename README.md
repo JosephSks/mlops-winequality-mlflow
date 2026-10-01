@@ -86,11 +86,13 @@ jupyter lab notebooks/pipeline_winequality_mlflow.ipynb
 *El notebook está diseñado para ejecutarse de principio a fin de forma determinista (fijando semillas aleatorias `random_state=42`).*
 
 ### 5. Lanzar la Interfaz de Usuario de MLflow
-Para visualizar localmente los 10+ experimentos, curvas y el Model Registry:
+Para visualizar localmente los 11 experimentos, curvas, métricas y el Model Registry:
 ```bash
-mlflow ui
+mlflow ui --backend-store-uri sqlite:///mlflow.db --port 5001 --workers 1
 ```
-Luego abre tu navegador en: [http://localhost:5000](http://localhost:5000).
+Luego abre tu navegador en: [http://localhost:5001](http://localhost:5001).
+
+> **Nota para Windows:** El parámetro `--workers 1` previene conflictos de concurrencia de sockets (`WinError 10022`), y `--backend-store-uri sqlite:///mlflow.db` conecta directamente con la base de datos relacional que habilita el Model Registry.
 
 ---
 
